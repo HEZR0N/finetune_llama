@@ -39,6 +39,10 @@ python finetune_mistral.py
 ```
 
 ## Trial Results
+In the trials, there are 4 different values used for `temperature`, `top_k`, and `num_beams`:
+ - `temperature`: 1.00, 0.66, 0.33, 0.00
+ -  `top_k`: 8, 4, 2, 1
+ -  `num_beams`: 8, 4, 2, 1
 ### mistral
 Here I observed when `num_beams` was set to 1, the other params had no visible effects: 
 ```
