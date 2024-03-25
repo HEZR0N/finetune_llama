@@ -1,3 +1,4 @@
+# 2024 Hezron E Perez
 import os
 from huggingface_hub.hf_api import HfFolder
 import torch
@@ -40,9 +41,7 @@ quant_config = BitsAndBytesConfig(
     bnb_4bit_use_double_quant=False,
 )
 
-
-access_token="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"
-print("hi")
+access_token="hf_token"
 
 model = AutoModelForCausalLM.from_pretrained(
     base_model,
@@ -50,7 +49,7 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map={"": 0},
     token=access_token
 )
-print("done")
+
 model.config.use_cache = False
 model.config.pretraining_tp = 1
 
@@ -169,7 +168,8 @@ def test_pipe(temp, top_k, num_beam):
     Rouge = []
     BERTScore = []
         
-    pipe = pipeline(task="text-generation", model=new_test_model, tokenizer=tokenizer, max_length=200)
+    pipe = pipeline(task="text-generation", model=new_test_model, tokenizer=tokenizer, max_length=200,
+        top_k=top_k, num_beams=num_beam, temperature=temp)
 
     # Loop to test dataset    
     for i in range(20):
@@ -221,4 +221,4 @@ test_pipe(0, 1, 1)
 print("Params\t\t\t\t\t\t\t\tBLEU\t\tRouge\t\tBERT")
 for i in range(10):
     t = trials[i]
-    print(f"{t[0]}\t\t\t\t{t[1]:.2f}\t\t{t[2]:.2f}\t\t{t[3]:.2f}")
+    print(f"{t[0]}\t\t\t\t{t[1]:.4f}\t\t{t[2]:.4f}\t\t{t[3]:.4f}")
