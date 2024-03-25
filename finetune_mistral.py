@@ -194,31 +194,31 @@ def test_pipe(temp, top_k, num_beam):
 
 
 # Test Finetuned Model: Default Pipeline
-test_pipe(1, 1, 1)
+test_pipe(1, 8, 8)
 
 # Testing Different Beam Values
-test_pipe(1, 1, 2)
+test_pipe(1, 8, 4)
 
-test_pipe(1, 1, 4)
-
-test_pipe(1, 1, 8)
-
-# Testing Different Top_K Values
-test_pipe(1, 2, 1)
-
-test_pipe(1, 4, 1)
+test_pipe(1, 8, 2)
 
 test_pipe(1, 8, 1)
 
+# Testing Different Top_K Values
+test_pipe(1, 4, 8)
+
+test_pipe(1, 2, 8)
+
+test_pipe(1, 1, 8)
+
 # Testing Different Tempurature Values
-test_pipe(0.66, 1, 1)
+test_pipe(0.66, 8, 8)
 
-test_pipe(0.33, 1, 1)
+test_pipe(0.33, 8, 8)
 
-test_pipe(0, 1, 1)
+test_pipe(0.01, 8, 8)
 
 # Print Summary
 print("Params\t\t\t\t\t\t\t\tBLEU\t\tRouge\t\tBERT")
 for i in range(10):
     t = trials[i]
-    print(f"{t[0]}\t\t\t\t{t[1]:.4f}\t\t{t[2]:.4f}\t\t{t[3]:.4f}")
+    print(f"{t[0]}\t\t\t{t[1]:.4f}\t\t{t[2]:.4f}\t\t{t[3]:.4f}")
