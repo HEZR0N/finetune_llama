@@ -1,0 +1,5 @@
+Looking at the results of the three finetuned models, llama-2 and mistral performed similarly across all metrics. 
+Phi-2, on the other hand, performed noticibly better for the BLEU metric, but noticibly worse for the BERT score.
+
+Looking at the results of the trials with different hyperparameters, for mistral, I observed when num_beams was set to 1, the other params had no visible effects on the performance, while an increase in num_beams correlated with a minor increase in the Rouge score.
+For phi-2, I again noticed that num_beams had an affect on performance. There was a noticibly positive correlation between num_beams and BLEU and Rouge metrics, with a minor negative correlation in the BERT score. For llama-2, I noticed a weak postive correlation between temperature and all metrics, as well as between top_k and all metrics. 
