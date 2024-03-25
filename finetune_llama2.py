@@ -20,13 +20,13 @@ from bert_score import BERTScorer
 from evaluate import load
 
 # Model from Hugging Face hub
-base_model = "mistralai/Mistral-7B-v0.1"
+base_model = "meta-llama/Llama-2-7b-hf"
 
 # New instruction dataset
 alpaca_dataset = "vicgalle/alpaca-gpt4"
 
 # Fine-tuned model
-new_model = "mistral-finetuned"
+new_model = "llama-2-7b-finetuned"
 
 # Get dataset
 dataset = load_dataset(alpaca_dataset, split="train")
@@ -46,6 +46,8 @@ quant_config = BitsAndBytesConfig(
 )
 
 # Load pre-trained model
+access_token="hf_token"
+
 model = AutoModelForCausalLM.from_pretrained(
     base_model,
     quantization_config=quant_config,
@@ -64,7 +66,7 @@ tokenizer.padding_side = "right"
 test_text = dataset['instruction'][0]
 pipe = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=200, top_k=1, num_beams=2, temperature=0.5)
 result = pipe(f"<s>[INST] {test_text} [/INST]")
-print("Pre-trained Model Answer: ", result[0]['generated_text'])
+print("Pipeline: ", result[0]['generated_text'])
 
 # Train a new model by finetuning
 peft_params = LoraConfig(
@@ -143,7 +145,7 @@ result = default_pipe(f"<s>[INST] {test_text} [/INST]")
 print("Original Model Answer: ", result[0]['generated_text'])
 
 
-# Get Metrics for finetuned model
+# Get Metrics for fine tuned model
 nltk.download('punkt')
 nltk.download('bleu')
 rouge = Rouge()

@@ -20,13 +20,13 @@ from bert_score import BERTScorer
 from evaluate import load
 
 # Model from Hugging Face hub
-base_model = "mistralai/Mistral-7B-v0.1"
+base_model = "microsoft/phi-2"
 
 # New instruction dataset
 alpaca_dataset = "vicgalle/alpaca-gpt4"
 
 # Fine-tuned model
-new_model = "mistral-finetuned"
+new_model = "phi-2-finetuned"
 
 # Get dataset
 dataset = load_dataset(alpaca_dataset, split="train")
@@ -50,13 +50,12 @@ model = AutoModelForCausalLM.from_pretrained(
     base_model,
     quantization_config=quant_config,
     device_map={"": 0},
-    token=access_token
 )
 
 model.config.use_cache = False
 model.config.pretraining_tp = 1
 
-tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True, token=access_token)
+tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True)
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "right"
 
@@ -122,7 +121,6 @@ load_model = AutoModelForCausalLM.from_pretrained(
     return_dict=True,
     torch_dtype=torch.float16,
     device_map={"": 0},
-    token=access_token
 )
 
 new_test_model = PeftModel.from_pretrained(load_model, new_model)
