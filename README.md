@@ -46,55 +46,55 @@ In the trials, there are 4 different values used for `temperature`, `top_k`, and
 ### mistral
 Here I observed when `num_beams` was set to 1, the other params had no visible effects: 
 ```
-Params								BLEU		Rouge		BERT
-Temperature: 1.00, Top_K: 1, Num_beam: 1			0.0557		0.5922		0.7330
-Temperature: 1.00, Top_K: 1, Num_beam: 2			0.0557		0.4887		0.7422
-Temperature: 1.00, Top_K: 1, Num_beam: 4			0.0568		0.5327		0.7411
-Temperature: 1.00, Top_K: 1, Num_beam: 8			0.0589		0.6632		0.7355
-Temperature: 1.00, Top_K: 2, Num_beam: 1			0.0557		0.5922		0.7330
-Temperature: 1.00, Top_K: 4, Num_beam: 1			0.0557		0.5922		0.7330
-Temperature: 1.00, Top_K: 8, Num_beam: 1			0.0557		0.5922		0.7330
-Temperature: 0.66, Top_K: 1, Num_beam: 1			0.0557		0.5922		0.7330
-Temperature: 0.33, Top_K: 1, Num_beam: 1			0.0557		0.5922		0.7330
-Temperature: 0.01, Top_K: 1, Num_beam: 1			0.0557		0.5922		0.7330
+Params								BLEU		Rouge		BERT		Human_Eval
+Temperature: 1.00, Top_K: 1, Num_beam: 1			0.0557		0.5922		0.7330		0.35
+Temperature: 1.00, Top_K: 1, Num_beam: 2			0.0557		0.4887		0.7422		0.37
+Temperature: 1.00, Top_K: 1, Num_beam: 4			0.0568		0.5327		0.7411		0.42
+Temperature: 1.00, Top_K: 1, Num_beam: 8			0.0589		0.6632		0.7355		0.46
+Temperature: 1.00, Top_K: 2, Num_beam: 1			0.0557		0.5922		0.7330		0.35
+Temperature: 1.00, Top_K: 4, Num_beam: 1			0.0557		0.5922		0.7330		0.35
+Temperature: 1.00, Top_K: 8, Num_beam: 1			0.0557		0.5922		0.7330		0.35
+Temperature: 0.66, Top_K: 1, Num_beam: 1			0.0557		0.5922		0.7330		0.35
+Temperature: 0.33, Top_K: 1, Num_beam: 1			0.0557		0.5922		0.7330		0.35
+Temperature: 0.01, Top_K: 1, Num_beam: 1			0.0557		0.5922		0.7330		0.35
 ```
 
 ### phi-2
 ```
-Params								BLEU		Rouge		BERT
-Temperature: 1.00, Top_K: 8, Num_beam: 8			0.1718		0.6624		0.6898
-Temperature: 1.00, Top_K: 8, Num_beam: 4			0.1269		0.6305		0.7167
-Temperature: 1.00, Top_K: 8, Num_beam: 2			0.0792		0.5168		0.7098
-Temperature: 1.00, Top_K: 8, Num_beam: 1			0.0911		0.5378		0.7020
-Temperature: 1.00, Top_K: 4, Num_beam: 8			0.1718		0.6624		0.6898
-Temperature: 1.00, Top_K: 2, Num_beam: 8			0.1718		0.6624		0.6898
-Temperature: 1.00, Top_K: 1, Num_beam: 8			0.1718		0.6624		0.6898
-Temperature: 0.66, Top_K: 8, Num_beam: 8			0.1718		0.6624		0.6898
-Temperature: 0.33, Top_K: 8, Num_beam: 8			0.1718		0.6624		0.6898
-Temperature: 0.01, Top_K: 8, Num_beam: 8			0.1718		0.6624		0.6898
+Params								BLEU		Rouge		BERT		Human_Eval
+Temperature: 1.00, Top_K: 8, Num_beam: 8			0.1718		0.6624		0.6898		0.45
+Temperature: 1.00, Top_K: 8, Num_beam: 4			0.1269		0.6305		0.7167		0.40
+Temperature: 1.00, Top_K: 8, Num_beam: 2			0.0792		0.5168		0.7098		0.34
+Temperature: 1.00, Top_K: 8, Num_beam: 1			0.0911		0.5378		0.7020		0.32
+Temperature: 1.00, Top_K: 4, Num_beam: 8			0.1718		0.6624		0.6898		0.45
+Temperature: 1.00, Top_K: 2, Num_beam: 8			0.1718		0.6624		0.6898		0.45
+Temperature: 1.00, Top_K: 1, Num_beam: 8			0.1718		0.6624		0.6898		0.45
+Temperature: 0.66, Top_K: 8, Num_beam: 8			0.1718		0.6624		0.6898		0.45
+Temperature: 0.33, Top_K: 8, Num_beam: 8			0.1718		0.6624		0.6898		0.45
+Temperature: 0.01, Top_K: 8, Num_beam: 8			0.1718		0.6624		0.6898		0.45
 ```
 
 ### llama-2
 ```
-Params								BLEU		Rouge		BERT
-Temperature: 1.00, Top_K: 8, Num_beam: 8			0.0562		0.6818		0.7401
-Temperature: 1.00, Top_K: 8, Num_beam: 4			0.0567		0.6366		0.7407
-Temperature: 1.00, Top_K: 8, Num_beam: 2			0.0699		0.6727		0.7384
-Temperature: 1.00, Top_K: 8, Num_beam: 1			0.0658		0.3748		0.7495
-Temperature: 1.00, Top_K: 4, Num_beam: 8			0.0579		0.7058		0.7361
-Temperature: 1.00, Top_K: 2, Num_beam: 8			0.0560		0.6698		0.7385
-Temperature: 1.00, Top_K: 1, Num_beam: 8			0.0560		0.6698		0.7385
-Temperature: 0.66, Top_K: 8, Num_beam: 8			0.0565		0.6678		0.7370
-Temperature: 0.33, Top_K: 8, Num_beam: 8			0.0571		0.6939		0.7372
-Temperature: 0.01, Top_K: 8, Num_beam: 8			0.0560		0.6698		0.7385
+Params								BLEU		Rouge		BERT		Human_Eval
+Temperature: 1.00, Top_K: 8, Num_beam: 8			0.0562		0.6818		0.7401		0.46
+Temperature: 1.00, Top_K: 8, Num_beam: 4			0.0567		0.6366		0.7407		0.48
+Temperature: 1.00, Top_K: 8, Num_beam: 2			0.0699		0.6727		0.7384		0.49
+Temperature: 1.00, Top_K: 8, Num_beam: 1			0.0658		0.3748		0.7495		0.51
+Temperature: 1.00, Top_K: 4, Num_beam: 8			0.0579		0.7058		0.7361		0.55
+Temperature: 1.00, Top_K: 2, Num_beam: 8			0.0560		0.6698		0.7385		0.45
+Temperature: 1.00, Top_K: 1, Num_beam: 8			0.0560		0.6698		0.7385		0.45
+Temperature: 0.66, Top_K: 8, Num_beam: 8			0.0565		0.6678		0.7370		0.44
+Temperature: 0.33, Top_K: 8, Num_beam: 8			0.0571		0.6939		0.7372		0.47
+Temperature: 0.01, Top_K: 8, Num_beam: 8			0.0560		0.6698		0.7385		0.45
 ```
 
 ## Model Metric Comparison
 ```
-Model Name		BLEU		Rouge		BERT
-llama-2			0.0560		0.6698		0.7385
-phi-2			0.1718		0.6624		0.6898
-mistral			0.0589		0.6632		0.7355
+Model Name		BLEU		Rouge		BERT		Human_Eval
+llama-2			0.0560		0.6698		0.7385		0.45
+phi-2			0.1718		0.6624		0.6898		0.45
+mistral			0.0589		0.6632		0.7355		0.46
 ```
 
 ## References
