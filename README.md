@@ -89,5 +89,13 @@ Temperature: 0.33, Top_K: 8, Num_beam: 8			0.0571		0.6939		0.7372
 Temperature: 0.01, Top_K: 8, Num_beam: 8			0.0560		0.6698		0.7385
 ```
 
+## Model Metric Comparison
+```
+Model Name		BLEU		Rouge		BERT
+llama-2			0.0560		0.6698		0.7385
+phi-2			0.1718		0.6624		0.6898
+mistral			0.0589		0.6632		0.7355
+```
+
 ## References
 The code wis partially based on this datacamp tutorial: https://www.datacamp.com/tutorial/fine-tuning-llama-2
