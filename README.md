@@ -92,9 +92,9 @@ Temperature: 0.01, Top_K: 8, Num_beam: 8			0.0560		0.6698		0.7385		0.7450
 ## Model Metric Comparison
 ```
 Model Name		BLEU		Rouge		BERT		Human_Eval
-llama-2			0.0560		0.6698		0.7385		0.45
-phi-2			0.1718		0.6624		0.6898		0.45
-mistral			0.0589		0.6632		0.7355		0.46
+llama-2			0.0560		0.6698		0.7385		0.7450
+phi-2			0.1718		0.6624		0.6898		0.6950
+mistral			0.0589		0.6632		0.7355		0.7450
 ```
 
 ## References
