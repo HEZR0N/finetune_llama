@@ -127,7 +127,7 @@ new_test_model = PeftModel.from_pretrained(load_model, new_model)
 new_test_model = new_test_model.merge_and_unload()
 
 # Reload tokenizer to save it
-tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True, token=access_token)
+tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True)
 tokenizer.add_special_tokens({'pad_token': '[PAD]'})
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "right"
