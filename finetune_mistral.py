@@ -46,16 +46,18 @@ quant_config = BitsAndBytesConfig(
 )
 
 # Load pre-trained model
+access_token="hf_token"
 model = AutoModelForCausalLM.from_pretrained(
     base_model,
     quantization_config=quant_config,
-    device_map={"": 0}
+    device_map={"": 0},
+    token=access_token
 )
 
 model.config.use_cache = False
 model.config.pretraining_tp = 1
 
-tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True, , token=access_token)
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "right"
 
@@ -120,14 +122,15 @@ load_model = AutoModelForCausalLM.from_pretrained(
     low_cpu_mem_usage=True,
     return_dict=True,
     torch_dtype=torch.float16,
-    device_map={"": 0}
+    device_map={"": 0},
+    token=access_token
 )
 
 new_test_model = PeftModel.from_pretrained(load_model, new_model)
 new_test_model = new_test_model.merge_and_unload()
 
 # Reload tokenizer to save it
-tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True, token=access_token)
 tokenizer.add_special_tokens({'pad_token': '[PAD]'})
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "right"
